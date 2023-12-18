@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.hp.adomingos</groupId>
 	<artifactId>restservice</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>Employee Management Web Service</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>

@@ -1,15 +1,14 @@
 package com.hp.adomingos.restservice.employee;
 
+import java.util.List;
+import java.util.Iterator;
+
 import org.springframework.stereotype.Repository;
 
-// Importing the employees class to use the
-// definid properties in this class
-import com.hp.adomingos.restservice.employee.Employees;
+
 
 @Repository
-
-//Class to create a list
-// of employees
+//Class to create a list of employees
 public class EmployeeManager {
     private static Employees list = new Employees();
 
@@ -66,5 +65,37 @@ public class EmployeeManager {
     public void addEmployee(Employee employee) {
         list.getEmployeeList().add(employee);
     }
+
+    // Delete an employee
+    public boolean deleteEmployee(Integer id) {
+        List<Employee> employees = list.getEmployeeList();
+
+        for (Employee employee : employees) {
+            if (employee.getId().equals(id)) {
+                employees.remove(employee);
+                return true;
+            }
+        }
+
+        return false; // Employee not found
+    }
+
+    // Update an employee
+    public boolean updateEmployee(Integer id, Employee updatedEmployee) {
+        List<Employee> employees = list.getEmployeeList();
+
+        for (int i = 0; i < employees.size(); i++) {
+            Employee employee = employees.get(i);
+
+            if (employee.getId().equals(id)) {
+                employee.setFirstName(updatedEmployee.getFirstName());
+                employee.setLastName(updatedEmployee.getLastName());
+                return true;
+            }
+        }
+
+        return false; // Employee not found
+    }
+
 }
 
