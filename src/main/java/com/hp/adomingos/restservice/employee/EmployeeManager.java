@@ -80,22 +80,29 @@ public class EmployeeManager {
         return false; // Employee not found
     }
 
-    // Update an employee
+    // Update an employee (Partial update)
     public boolean updateEmployee(Integer id, Employee updatedEmployee) {
         List<Employee> employees = list.getEmployeeList();
 
-        for (int i = 0; i < employees.size(); i++) {
-            Employee employee = employees.get(i);
-
+        for (Employee employee : employees) {
             if (employee.getId().equals(id)) {
-                employee.setFirstName(updatedEmployee.getFirstName());
-                employee.setLastName(updatedEmployee.getLastName());
+                if (updatedEmployee.getFirstName() != null) {
+                    employee.setFirstName(updatedEmployee.getFirstName());
+                }
+                if (updatedEmployee.getLastName() != null) {
+                    employee.setLastName(updatedEmployee.getLastName());
+                }
+                if (updatedEmployee.getEmail() != null) {
+                    employee.setEmail(updatedEmployee.getEmail());
+                }
+                if (updatedEmployee.getTitle() != null) {
+                    employee.setTitle(updatedEmployee.getTitle());
+                }
+                
                 return true;
             }
         }
-
-        return false; // Employee not found
-    }
-
+        return false;       
+    } 
 }
 
