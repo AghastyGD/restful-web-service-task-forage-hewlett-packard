@@ -1,7 +1,6 @@
 package com.hp.adomingos.restservice.employee;
 
 import java.util.List;
-import java.util.Iterator;
 
 import org.springframework.stereotype.Repository;
 
